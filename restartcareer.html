@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Restart Your Career</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      background-color: #f9f9ff;
+      scroll-behavior: smooth;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      animation: fadeInDown 1s ease;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      animation: fadeInUp 1.3s ease;
+    }
+
+    .hero .tagline {
+      font-style: italic;
+      margin-top: 10px;
+      font-size: 1.1rem;
+      color: #e0e0e0;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .hero button {
+      background: #fff;
+      color: #2575fc;
+      padding: 12px 25px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 30px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+
+    .hero button:hover {
+      background: #6a11cb;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    /* Assessment Section */
+    .assessment {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .assessment h2 {
+      font-size: 2rem;
+      color: #2575fc;
+      margin-bottom: 20px;
+    }
+
+    .assessment form {
+      max-width: 450px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      animation: fadeIn 1s ease;
+    }
+
+    .assessment label {
+      text-align: left;
+      font-weight: 600;
+      display: block;
+      margin-top: 10px;
+    }
+
+    .assessment select, .assessment button {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      width: 100%;
+    }
+
+    .assessment button {
+      background: #2575fc;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      transition: background 0.3s ease;
+    }
+
+    .assessment button:hover {
+      background: #6a11cb;
+    }
+
+    #result {
+      margin-top: 20px;
+      background: #eef4ff;
+      border-radius: 10px;
+      padding: 15px;
+      display: inline-block;
+      animation: fadeIn 1s ease;
+    }
+
+    /* Career Paths */
+    .skills {
+      padding: 60px 20px;
+      background: #f3f6ff;
+      text-align: center;
+    }
+
+    .skills h2 {
+      color: #2575fc;
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      justify-content: center;
+    }
+
+    .card {
+      background: #fff;
+      width: 250px;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeInUp 1s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .card h3 {
+      color: #6a11cb;
+      margin-bottom: 10px;
+    }
+
+    .card button {
+      margin-top: 15px;
+      padding: 10px 15px;
+      background: #2575fc;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .card button:hover {
+      background: #6a11cb;
+      transform: scale(1.05);
+    }
+
+    /* Tips Section */
+    .tips {
+      padding: 60px 20px;
+      background: #fff;
+      text-align: center;
+    }
+
+    .tips h2 {
+      font-size: 2rem;
+      color: #2575fc;
+      margin-bottom: 20px;
+    }
+
+    .tips ul {
+      list-style: none;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .tips li {
+      background: #eef4ff;
+      margin: 15px 0;
+      padding: 15px;
+      border-left: 6px solid #2575fc;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .tips li:hover {
+      background: #dfe9ff;
+      transform: translateX(5px);
+    }
+
+    /* Confidence Section */
+    .confidence {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px;
+      border-top-left-radius: 50px;
+      border-top-right-radius: 50px;
+      box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
+    }
+
+    .confidence h2 {
+      font-size: 2.3rem;
+      margin-bottom: 20px;
+    }
+
+    .confidence ul {
+      list-style: none;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .confidence ul li {
+      margin: 15px 0;
+      position: relative;
+      padding-left: 30px;
+      font-size: 1.1rem;
+    }
+
+    .confidence ul li::before {
+      content: "✨";
+      position: absolute;
+      left: 0;
+    }
+
+    /* Animations */
+    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+    @keyframes fadeInUp { from {opacity:0; transform: translateY(20px);} to {opacity:1; transform: translateY(0);} }
+    @keyframes fadeInDown { from {opacity:0; transform: translateY(-20px);} to {opacity:1; transform: translateY(0);} }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .cards { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <h1>Restart Your Career Journey</h1>
+    <p>Take the first confident step toward a brighter professional future.</p>
+    <p class="tagline">Your comeback story starts today 💪</p>
+    <button onclick="scrollToSection('assessment')">Start Your Journey</button>
+  </section>
+
+  <section class="assessment" id="assessment">
+    <h2>Quick Career Assessment</h2>
+    <form id="careerForm">
+      <label for="experience">Current Experience Level:</label>
+      <select id="experience" required>
+        <option value="">Select</option>
+        <option value="Beginner">Beginner</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Advanced">Advanced</option>
+      </select>
+
+      <label for="industry">Interested Industry:</label>
+      <select id="industry" required>
+        <option value="">Select</option>
+        <option value="IT Support">IT Support</option>
+        <option value="Web Development">Web Development</option>
+        <option value="Artificial Intelligence">Artificial Intelligence</option>
+        <option value="Full Stack Development">Full Stack Development</option>
+        <option value="Machine Learning">Machine Learning</option>
+        <option value="Digital Marketing">Digital Marketing</option>
+        <option value="Business Administration">Business Administration</option>
+        <option value="Graphic Design">Graphic Design</option>
+      </select>
+
+      <button type="submit">Get Suggestions</button>
+    </form>
+    <div id="result"></div>
+  </section>
+
+  <section class="skills">
+    <h2>Explore Career Paths</h2>
+    <div class="cards">
+      <div class="card"><h3>IT Support</h3><p>Start your journey in IT and technical services.</p><button onclick="window.open('https://www.coursera.org/professional-certificates/google-it-support')">Explore Course</button></div>
+      <div class="card"><h3>Web Development</h3><p>Learn to build modern, responsive websites and apps.</p><button onclick="window.open('https://www.coursera.org/professional-certificates/meta-front-end-developer')">Explore Course</button></div>
+      <div class="card"><h3>AI & ML</h3><p>Master the future with AI, ML, and data-driven solutions.</p><button onclick="window.open('https://www.coursera.org/learn/machine-learning')">Explore Course</button></div>
+      <div class="card"><h3>Digital Marketing</h3><p>Promote brands with creativity and analytics.</p><button onclick="window.open('https://www.coursera.org/specializations/digital-marketing')">Explore Course</button></div>
+      <div class="card"><h3>Graphic Design</h3><p>Unleash creativity with modern design tools and trends.</p><button onclick="window.open('https://www.coursera.org/specializations/graphic-design')">Explore Course</button></div>
+    </div>
+  </section>
+
+  <section class="tips">
+    <h2>Top Career Restart Tips</h2>
+    <ul>
+      <li>📘 Refresh your skills through online certifications.</li>
+      <li>🤝 Network with peers and join professional communities.</li>
+      <li>🧭 Set small, achievable milestones to track progress.</li>
+      <li>💬 Practice communication and confidence building daily.</li>
+      <li>⚙️ Update your portfolio and resume regularly.</li>
+    </ul>
+  </section>
+
+  <section class="confidence">
+    <h2>Boost Your Confidence</h2>
+    <ul>
+      <li>Your skills are still valuable — just update and refine them.</li>
+      <li>Every gap in your career adds unique experience and strength.</li>
+      <li>Believe in progress, not perfection — one small win at a time.</li>
+    </ul>
+  </section>
+
+  <script>
+    document.getElementById('careerForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const experience = document.getElementById('experience').value;
+      const industry = document.getElementById('industry').value;
+
+      let resultText = `<h3>Suggested Path:</h3>
+        <p>As a <strong>${experience}</strong>-level candidate interested in <strong>${industry}</strong>,
+        we recommend exploring related online courses and projects to enhance your profile 🚀.</p>`;
+
+      document.getElementById('result').innerHTML = resultText;
+    });
+
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>

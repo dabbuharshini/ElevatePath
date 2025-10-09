@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Elevate Path</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <style>
+    .user-menu {
+      position: relative;
+    }
+
+    .user-menu .dropdown {
+      display: none;
+      position: absolute;
+      background-color: white;
+      right: 0;
+      top: 100%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      min-width: 120px;
+      z-index: 100;
+    }
+
+    .user-menu .dropdown li {
+      padding: 10px;
+      text-align: left;
+    }
+
+    .user-menu .dropdown li a {
+      text-decoration: none;
+      color: #333;
+      display: block;
+    }
+
+    .user-menu .dropdown li:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container1">
+    <div class="navbar">
+      <div class="logo">
+        <img src="images/compass1.png" width="100px" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home <i class="fa-solid fa-house"></i></a></li>
+          <li><a href="coachandmentor.html">Mentors <i class="fa-solid fa-chalkboard-user"></i></a></li>
+          <li><a href="contact.html">Contact <i class="fa-solid fa-phone"></i></a></li>
+          <li class="user-menu" id="userMenu">
+            <a href="login.html" id="userLink">Login/Signup <i class="fa-solid fa-user"></i></a>
+            <ul class="dropdown" id="userDropdown">
+              <li><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <section>
+    <div class="header">
+      <div class="container">
+        <div class="backgroundimage">
+          <div class="hero">
+            <div class="row">
+              <button onclick="scrollToSection('products')" class="btn-x">Explore Services</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="products" id="products">
+    <div class="container">
+      <h2 class="title">OUR SERVICES</h2>
+      <br />
+      <div class="card-container">
+            <div class="card">
+                <img src="images/career_counselling.jpg" class="card-img-top" alt="Career Counselling">
+                <div class="card-body">
+                    <h5 class="card-title">Career Counselling</h5>
+                    <p class="card-text">Get guidance on your career choices.</p>
+                    <a href="career.html" class="btn">Explore</a>
+                </div>
+            </div>
+        
+            <div class="card">
+                <img src="images/persona_develop.webp" class="card-img-top" alt="Personality Development">
+                <div class="card-body">
+                    <h5 class="card-title">Personality Development</h5>
+                    <p class="card-text">Enhance your personal & professional skills.</p>
+                    <a href="personality_development.html" class="btn">Explore</a>
+                </div>
+            </div>
+        
+            <div class="card">
+                <img src="images/coach_mentor.jpg" class="card-img-top" alt="Coach & Mentor">
+                <div class="card-body">
+                    <h5 class="card-title">Coach & Mentor</h5>
+                    <p class="card-text">Get mentorship to advance in your career.</p>
+                    <a href="coachandmentor.html" class="btn">Explore</a>
+                </div>
+            </div>
+        
+            <div class="card">
+                <img src="images/restartcareer.avif" class="card-img-top" alt="Restart Career">
+                <div class="card-body">
+                    <h5 class="card-title">Restart Career</h5>
+                    <p class="card-text">Resume your career after a break.</p>
+                    <a href="restartcareer.html" class="btn">Explore</a>
+                </div>
+            </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <footer>
+      <div class="row1">
+        <div class="coll logo-section">
+          <img src="images/compass1.png" class="logo" />
+          <p><b><i class="fa-solid fa-phone"></i> +91-9876543210</b></p>
+          <h2 style="color:black">Where Uncertainty Fades!</h2>
+        </div>
+
+        <div class="coll links">
+          <h3 class="title">Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Mentors</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="coll contact">
+          <h3 class="title">Get in Touch</h3>
+          <form class="footer-form">
+            <input type="text" placeholder="Enter your name" required />
+            <input type="email" placeholder="Enter your email" required />
+            <input type="tel" placeholder="Enter your phone number" required />
+            <select required>
+              <option value="" disabled selected>Preferred call time</option>
+              <option value="Morning">Morning</option>
+              <option value="Afternoon">Afternoon</option>
+              <option value="Evening">Evening</option>
+            </select>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </footer>
+  </section>
+  <script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="8oRjm0tR7IXw8i1sXqPzA";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+  <script>
+  function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+  }
+
+  window.onload = function () {
+    const userLink = document.getElementById("userLink");
+    const userDropdown = document.getElementById("userDropdown");
+    const storedUser = JSON.parse(localStorage.getItem("tempUser"));
+    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+    const currentTime = Date.now();
+    const tenMinutes = 10 * 60 * 1000;
+
+    // --- Check expiration ---
+    if (storedUser && currentTime - storedUser.timestamp > tenMinutes) {
+      // session expired
+      localStorage.removeItem("tempUser");
+      localStorage.removeItem("isLoggedIn");
+      localStorage.removeItem("username");
+    }
+
+    // --- Re-check login status after expiration logic ---
+    const stillLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+    const username = localStorage.getItem("username");
+
+    if (stillLoggedIn && username) {
+      userLink.innerHTML = `${username} <i class="fa-solid fa-caret-down"></i>`;
+      userLink.href = "#";
+      userDropdown.style.display = "none";
+    } else {
+      userLink.innerHTML = `Login/Signup <i class="fa-solid fa-user"></i>`;
+      userLink.href = "login.html";
+      userDropdown.style.display = "none";
+    }
+
+    // --- Toggle dropdown on click ---
+    userLink.addEventListener("click", function (e) {
+      if (stillLoggedIn && username) {
+        e.preventDefault();
+        userDropdown.style.display =
+          userDropdown.style.display === "block" ? "none" : "block";
+      }
+    });
+  };
+
+  function logout() {
+    localStorage.setItem("isLoggedIn", "false");
+    localStorage.removeItem("username");
+    window.location.href = "login.html";
+  }
+</script>
+</body>
+</html>

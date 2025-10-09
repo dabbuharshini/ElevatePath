@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body onload="checkLogin()">
+  <header>
+    <h1>Admin Dashboard</h1>
+    <button onclick="logout()">Logout</button>
+  </header>
+  <main class="dashboard">
+    <a href="users.html" class="card">Manage Users</a>
+    <a href="mentors.html" class="card">Manage Mentors</a>
+    <a href="courses.html" class="card">Manage Courses</a>
+    <a href="internships.html" class="card">Manage Internships</a>
+  </main>
+</body>
+</html>

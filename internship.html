@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Opportunities</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color:cadetblue;
+        }
+        .search-bar {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto 20px auto;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px 40px 10px 15px; /* left: 15px, right: 40px for icon space */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .search-bar i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color:#777;
+            font-size: 16px;
+            pointer-events: none; /* make icon unclickable */
+        }
+        .internship-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .internship {
+            display: flex;
+            justify-content: space-between;
+            background:#ffffff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+        }
+        .apply-btn {
+            background-color: cadetblue;
+            color: #fff;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .apply-btn:hover {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Internship Opportunities</h1>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search internships..." onkeyup="filterInternships()" >
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="internship-list">
+            <div class="internship row">
+                <span class="card-title">Web Development Intern - Tech Solutions Ltd. - 3 Months</span>
+                <a href="apply.html?internship=Web%20Development%20Intern%20-%20Tech%20Solutions%20Ltd.%20-%203%20Months" class="apply-btn">Apply Now</a>
+            </div>
+            <div class="internship row">
+                <span class="card-title">Data Science Intern - AI Innovations - 6 Months</span>
+                <a href="apply.html?internship=Data%20Science%20Intern%20-%20AI%20Innovations%20Ltd.%20-%203%20Months" class="apply-btn">Apply Now</a>
+            </div>
+            <div class="internship row">
+                <span class="card-title">UI/UX Design Intern - Creative Minds Inc. - 4 Months</span>
+                <a href="apply.html?internship=UI/UX%20Design%20Intern%20-%20Creative%20Minds%20Inc.%20-%204%20Months" class="apply-btn">Apply Now</a>
+            </div>
+            <div class="internship row">
+                <span class="card-title">Cybersecurity Intern - SecureTech - 3 Months</span>
+                <a href="apply.html?internship=Cybersecurity%20Intern%20-%20SecureTech%20-%203%20Months" class="apply-btn">Apply Now</a>
+            </div>
+            <div class="internship row">
+                <span class="card-title">Digital Marketing Intern - Brand Boosters - 2 Months</span>
+                <a href="apply.html?internship=Digital%20Marketing%20Intern%20-%20Brand%20Boosters%20-%202%20Months" class="apply-btn">Apply Now</a>
+            </div>
+            <div class="internship row">
+                <span class="card-title">AI/ML Intern - Future Tech Labs - 6 Months</span>
+                <a href="apply.html?internship=AI/ML%20Intern%20-%20Future%20Tech%20Labs%20-%206%20Months" class="apply-btn">Apply Now</a>
+            </div>
+            <div class="internship row">
+                <span class="card-title">Software Engineer Intern - 6 Months</span>
+                <a href="apply.html?internship=Software%20Engineer%20Intern%20- %206%20Months" class="apply-btn">Apply Now</a>
+            </div>
+            <div class="internship row">
+                <span class="card-title">Flutter Development - 3 Months</span>
+                <a href="apply.html?internship=Flutterv\%20Development%20-%203%20Months" class="apply-btn">Apply Now</a>
+            </div>
+            <div class="internship row">
+                <span class="card-title">Full Stack Development Intern - 3.5 Months</span>
+                <a href="apply.html?internship=Full%20Stack%20Development Intern - 3.5 Months" class="apply-btn">Apply Now</a>
+            </div>
+            <div class="internship row">
+                <span class="card-title">AI/ML Intern - 6 Months</span>
+                <a href="apply.html?internship=AI/ML Intern - 6 Months" class="apply-btn">Apply Now</a>
+            </div>
+            <div class="internship row">
+                <span class="card-title">Project Manager Intern - HK Solutions Ltd. - 3 Months</span>
+                <a href="apply.html?internship=Project Manager Intern - HK Solutions Ltd. - 3 Months" class="apply-btn">Apply Now</a>
+            </div>
+            <div class="internship row">
+                <span class="card-title">Java Developer Intern - Anu Solutions Ltd. - 6 Months</span>
+                <a href="apply.html?internship=Java Developer Intern - Anu Solutions Ltd. - 6 Months" class="apply-btn">Apply Now</a>
+            </div>
+            <div class="internship row">
+                <span class="card-title">FrontEnd Development Intern - Tech Solutions Ltd. - 2 Months</span>
+                <a href="apply.html?internship=FrontEnd Development Intern - Tech Solutions Ltd. - 2 Months" class="apply-btn">Apply Now</a>
+            </div>
+            <div class="internship row">
+                <span class="card-title">BackEnd Development Intern - Tech Solutions Ltd. - 9 Months</span>
+                <a href="apply.html?internship=BackEnd Development Intern - Tech Solutions Ltd. - 9 Months" class="apply-btn">Apply Now</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        function filterInternships() {
+            const input = document.getElementById("searchInput").value.toLowerCase();
+            const internship = document.querySelectorAll(".row");
+            internship.forEach(card => {
+                const title = card.querySelector(".card-title").innerText.toLowerCase();
+                card.style.display = title.includes(input) ? "" : "none";
+            });
+        }
+    </script>
+</body>
+</html>

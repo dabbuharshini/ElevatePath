@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Register</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+  <style>
+    body {
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      background: url(images/login.jpg) no-repeat center center/cover;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .form {
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      border-radius: 15px;
+      overflow: hidden;
+      width: 320px;
+      text-align: center;
+      padding: 40px;
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-x {
+      background-color: black;
+      color: white;
+      width: 60%;
+      height: 40px;
+      border-radius: 5px;
+      margin: 0 auto 20px auto;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .input-group {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .input-group.active {
+      display: flex;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    .check-box {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    .submit-btn {
+      background: rgb(160, 121, 234);
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+      background: lightblue;
+    }
+
+    .register-link {
+      margin-top: 10px;
+      font-size: 14px;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    .register-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="form">
+    <!-- LOGIN FORM -->
+    <form id="login" class="input-group active">
+      <div class="btn-x">Login</div>
+      <input type="text" id="loginUsername" class="input-field" placeholder="Username" required>
+      <input type="password" id="loginPassword" class="input-field" placeholder="Password" required>
+      <div class="check-box">
+        <input type="checkbox"> Remember password
+      </div>
+      <button type="submit" class="submit-btn">Login</button>
+      <div class="register-link" onclick="showForm('register')">Not registered? Click here</div>
+    </form>
+
+    <!-- REGISTER FORM -->
+    <form id="register" class="input-group">
+      <div class="btn-x">Register</div>
+      <input type="text" id="regUsername" class="input-field" placeholder="Username" required>
+      <input type="email" id="regEmail" class="input-field" placeholder="Email" required>
+      <input type="password" id="regPassword" class="input-field" placeholder="Password" required>
+      <div class="check-box">
+        <input type="checkbox" required> I agree to the terms & conditions
+      </div>
+      <button type="submit" class="submit-btn">Register</button>
+    </form>
+  </div>
+
+  <script>
+    // Switch between login and register
+    function showForm(formId) {
+      document.getElementById('login').classList.remove('active');
+      document.getElementById('register').classList.remove('active');
+      document.getElementById(formId).classList.add('active');
+    }
+
+    // Register user (save temporarily)
+    document.getElementById('register').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const username = document.getElementById('regUsername').value.trim();
+      const email = document.getElementById('regEmail').value.trim();
+      const password = document.getElementById('regPassword').value.trim();
+
+      if (!username || !email || !password) {
+        alert("Please fill all fields!");
+        return;
+      }
+
+      const userData = {
+        username,
+        email,
+        password,
+        timestamp: Date.now()
+      };
+
+      localStorage.setItem('tempUser', JSON.stringify(userData));
+      showForm('login');
+    });
+
+    // Login validation
+    document.getElementById('login').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const username = document.getElementById('loginUsername').value.trim();
+      const password = document.getElementById('loginPassword').value.trim();
+      const storedData = JSON.parse(localStorage.getItem('tempUser'));
+
+      if (!storedData) {
+        alert("No registered user found! Please register first.");
+        return;
+      }
+
+      const currentTime = Date.now();
+      const tenMinutes = 10 * 60 * 1000;
+
+      if (currentTime - storedData.timestamp > tenMinutes) {
+        localStorage.removeItem('tempUser');
+        alert("Your session has expired! Please register again.");
+        showForm('register');
+        return;
+      }
+
+      if (username === storedData.username && password === storedData.password) {
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('username', username);
+        window.location.href = "index.html";
+      } else {
+        alert("Invalid username or password!");
+      }
+    });
+  </script>
+</body>
+</html>

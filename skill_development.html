@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Development Platform</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f5ff;
+            color: #333;
+        }
+        header {
+            background-color: #1e3a8a;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .section-container {
+            padding: 40px 20px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            margin: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .section-container h1 {
+            text-align: center;
+            color: lightseagreen;
+            margin-bottom: 20px;
+        }
+        .service-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .service-card {
+            background: #e3f2fd;
+            border: 2px solid #1e3a8a;
+            border-radius: 15px;
+            text-align: center;
+            padding: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #ffffff;
+            border: 3px solid #1e3a8a;
+            border-radius: 15px;
+            padding: 30px;
+            width: 300px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        .modal input {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #1e3a8a;
+            border-radius: 5px;
+        }
+        .modal button {
+            background-color: #1e3a8a;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .modal button:hover {
+            background-color: #2a4ea8;
+        }
+        .btn-x{
+        display:inline-block;
+        background-color:mediumorchid;
+        color:white;
+        padding:8px 30px;
+        border-radius:30px;
+        margin-left: 100px;
+        transition: background-color 0.5s;
+        }
+        .btn-x:hover{
+        background-color: cadetblue;
+        }
+        .service-card img {
+            width: 100%;
+            height: 150px; /* Fixed height for uniformity */
+            object-fit: cover; /* Ensures images maintain aspect ratio and fill the space */
+            border-radius: 10px; /* Consistent rounded corners */
+            border: 2px solid #1e3a8a; /* Border for consistency */
+        }
+        .section-container button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-top: 20px;
+    }
+
+    .section-container button:hover {
+        background-color: #0056b3;
+    }
+
+
+    #pdfResources {
+        margin-top: 20px;
+        text-align: left;
+        display: none;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    #pdfResources ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    #pdfResources li {
+        background-color: #ffffff;
+        margin: 8px 0;
+        padding: 12px 16px;
+        border-radius: 6px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s ease;
+    }
+
+    #pdfResources li:hover {
+        transform: scale(1.02);
+        background-color: #f1f9ff;
+    }
+
+    #pdfResources a {
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+    }
+
+    #pdfResources a:hover {
+        text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    </style>
+    <script>
+        function openCourse(courseType) {
+            const courseLinks = {
+                'web': 'https://www.udemy.com/course/the-complete-web-development-bootcamp/',
+                'data': 'https://www.coursera.org/specializations/data-science-foundations',
+                'digital': 'https://www.coursera.org/specializations/digital-marketing',
+                'ai': 'https://www.udemy.com/course/machinelearning/'
+            };
+
+            if (courseLinks[courseType]) {
+                window.open(courseLinks[courseType], '_blank');
+            } else {
+                alert('Course details are unavailable at the moment.');
+            }
+        }
+        function bookCounsellorSession() {
+            document.getElementById("counsellorModal").style.display = "block";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Skill Development Hub</h1>
+    </header>
+
+    <section class="section-container" id="services">
+        <h1>Course Links</h1>
+        <div class="service-list">
+            <div class="service-card" onclick="openCourse('web')">
+                <img src="images/webdevelop.jpg" alt="Web Development" style="width:100%; border-radius:10px;">
+                <p>Web Development</p>
+            </div>
+            <div class="service-card" onclick="openCourse('data')">
+                <img src="images/data_science.jpg" alt="Data Science" style="width:100%; border-radius:10px;">
+                <p>Data Science</p>
+            </div>
+            <div class="service-card" onclick="openCourse('digital')">
+                <img src="images/digitalimages.jpg" alt="Digital Marketing" style="width:100%; border-radius:10px;">
+                <p>Digital Marketing</p>
+            </div>
+            <div class="service-card" onclick="openCourse('ai')">
+                <img src="images/aiml.webp" alt="AI & ML" style="width:100%; border-radius:10px;">
+                <p>AI & Machine Learning</p>
+            </div>
+            <div class="service-card" onclick="openCourse('aptitude &Reasoning')">
+                <img src="images/aptitude&reasoning.jpg" alt="Aptitude & Reasoning" style="width:100%; border-radius:10px;">
+                <p>Aptitude & Reasoning</p>
+            </div>
+        </div>
+    </section>
+    <section class="section-container" id="resources">
+    <h1>Resource Library</h1>
+    <h2><i>Access guides, tutorials, and materials for skill enhancement.</i></h2>
+
+    <button onclick="toggleResources()" style="margin-top: 10px;">Access</button>
+
+    <div id="pdfResources" style="display: none; margin-top: 15px;">
+        <ul>
+            <li><a href="pdfs/webprog_top.pdf" target="_blank">Web Development Notes</a></li>
+            <li><a href="pdfs/Aptitude.pdf" target="_blank">Aptitude Notes</a></li>
+            <li><a href="pdfs/Datascience.pdf" target="_blank">Data Science Notes</a></li>
+            <li><a href="pdfs/ai-notes.pdf" target="_blank">Artificial Intelligence Notes</a></li>
+            <li><a href="pdfs/digital-marketing.pdf" target="_blank">Digital Marketing Notes</a></li>
+            <li><a href="pdfs/ml-notes.pdf" target="_blank">Machine Learning Notes</a></li>
+        </ul>
+    </div>
+    </section>
+
+    <script>
+    function toggleResources() {
+        const section = document.getElementById("pdfResources");
+        section.style.display = (section.style.display === "none") ? "block" : "none";
+    }
+    </script>
+</body>
+</html>

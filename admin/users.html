@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Users</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body onload="checkLogin()">
+  <header>
+    <h1>Manage Users</h1>
+    <button onclick="logout()">Logout</button>
+  </header>
+  <main>
+    <button onclick="addItem('users')">Add User</button>
+    <ul id="users-list"></ul>
+  </main>
+  <script>bindListPage('users');</script>
+</body>
+</html>

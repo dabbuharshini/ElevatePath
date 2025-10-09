@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Mentors</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body onload="checkLogin()">
+  <header>
+    <h1>Manage Mentors</h1>
+    <button onclick="logout()">Logout</button>
+  </header>
+  <main>
+    <button onclick="addItem('mentors')">Add Mentor</button>
+    <ul id="mentors-list"></ul>
+  </main>
+  <script>bindListPage('mentors');</script>
+</body>
+</html>

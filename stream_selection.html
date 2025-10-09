@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stream Selection</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+        .container {
+            background: #ffffff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            width: 100%;
+            max-width: 1400px;
+        }
+        h1 {
+            color: blue;
+        }
+        .content {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .stream-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 300px;
+        }
+        .stream-option {
+            background-color: cadetblue;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .stream-option:hover {
+            background-color: blueviolet;
+        }
+        .roadmap-container {
+            text-align: center;
+            display: none;
+            width: 100%;
+            max-width: 800px;
+            max-height: 90vh; /* Ensures image doesn’t exceed screen height */
+            overflow-y: auto; /* Enables scrolling for larger images */
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .roadmap-container img {
+            width: 100%;
+            height: auto;  /* Maintains proper proportions */
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Choose Your Stream Wisely!</h1>
+        <div class="content">
+            <div class="stream-list">
+                <button class="stream-option" onclick="showRoadmap('science')">Science</button>
+                <button class="stream-option" onclick="showRoadmap('commerce')">Commerce</button>
+                <button class="stream-option" onclick="showRoadmap('arts')">Arts</button>
+                <button class="stream-option" onclick="showRoadmap('engineering')">Engineering</button>
+                <button class="stream-option" onclick="showRoadmap('medical')">Medical</button>
+                <button class="stream-option" onclick="showRoadmap('law')">Law</button>
+            </div>
+
+            <div class="roadmap-container" id="roadmap-container">
+                <h2 id="roadmap-title"></h2>
+                <img id="roadmap-image" src="" alt="Roadmap Image" style="width: 100%; height: auto; display: none;">
+                <iframe id="roadmap-frame" src="" style="width:100%; height:600px; border: none; display: none;"></iframe>
+            </div>
+        </div>
+    </div>
+    <script>
+    function showRoadmap(stream) {
+        const roadmapData = {
+            science: "images/Roadmaps/science.html",
+            commerce: "images/Roadmaps/commerce.html",
+            arts: "images/Roadmaps/arts.html",
+            engineering: "images/Roadmaps/Engineering.html",
+            medical: "images/Roadmaps/Medical.html",
+            law: "images/Roadmaps/law.html"
+        };
+
+        const titleElement = document.getElementById('roadmap-title');
+        const roadmapContainer = document.getElementById('roadmap-container');
+        const imageElement = document.getElementById('roadmap-image');
+        const iframeElement = document.getElementById('roadmap-frame');
+
+        const src = roadmapData[stream];
+        titleElement.textContent = `${stream.toUpperCase()} Roadmap`;
+
+        if (src.endsWith(".png") || src.endsWith(".jpg") || src.endsWith(".jpeg")) {
+            iframeElement.style.display = 'none';
+            imageElement.style.display = 'block';
+            imageElement.src = src;
+            roadmapContainer.style.display = 'block';
+        } else if (src.endsWith(".html")) {
+            imageElement.style.display = 'none';
+            iframeElement.style.display = 'block';
+            iframeElement.src = src;
+            roadmapContainer.style.display = 'block';
+        } else {
+            roadmapContainer.style.display = 'none';
+            alert("Unsupported format or file missing!");
+        }
+    }
+</script>
+
+</body>
+</html>

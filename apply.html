@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apply for Internship</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      background: #fff;
+      padding: 30px;
+      max-width: 600px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input[type="file"], button {
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 16px;
+    }
+    #backBtn {
+      background: gray;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #submitBtn {
+      background: cadetblue;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 id="internshipTitle">Internship Application</h2>
+    <form id="applicationForm" enctype="multipart/form-data">
+      <label for="resumeInput"><b>Upload your resume:</b></label><br>
+      <input type="file" id="resumeInput" name="resume" accept=".pdf,.doc,.docx" required /><br>
+      <input type="email" id="emailInput" name="email" placeholder="Your Email" required /><br>
+      <button type="submit" id="submitBtn">Submit</button>
+      <button type="button" id="backBtn" onclick="history.back()">Back</button>
+    </form>
+    <div id="message"></div>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const internship = urlParams.get('internship');
+    if (internship) {
+      document.getElementById('internshipTitle').textContent = `Apply for: ${internship}`;
+    }
+    document.getElementById('applicationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const formData = new FormData();
+      formData.append('resume', document.getElementById('resumeInput').files[0]);
+      formData.append('email', document.getElementById('emailInput').value);
+      formData.append('internship', internship);
+
+    fetch('http://localhost:3000/submitApplication', {
+      method: 'POST',
+      body: formData
+    })
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('message').textContent = data;
+        document.getElementById('applicationForm').reset();
+      })
+      .catch(error => {
+        document.getElementById('message').textContent = "Submission failed.";
+      });
+    });
+  </script>
+</body>
+</html>
